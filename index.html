@@ -40,6 +40,7 @@
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="resume.pdf" target="_blank" class="resume-trigger">Resume</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -52,6 +53,9 @@
                 <p class="description fade-in delay-2">Building scalable APIs, automation tools, and secure web
                     applications with Python & Flask.</p>
                 <a href="#projects" class="btn fade-in delay-3">View Work</a>
+                <a href="resume.pdf" target="_blank" class="btn fade-in delay-3 resume-trigger"
+                    style="margin-left: 1rem;">View
+                    Resume</a>
             </div>
         </section>
 
@@ -157,11 +161,25 @@
             </div>
         </section>
     </main>
+
     <footer>
         <div class="container">
             <p>&copy; <span id="year"></span> Vivek Kumar. Portfolio.</p>
         </div>
     </footer>
+    <!-- Resume Modal -->
+    <div id="resumeModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="resume.pdf" target="_blank" class="btn-text">Open Full Screen ↗</a>
+                <button id="closeModal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <embed src="resume.pdf" type="application/pdf" width="100%" height="100%">
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 

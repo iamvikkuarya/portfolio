@@ -20,11 +20,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Select elements to animate (sections, cards)
     const fadeElements = document.querySelectorAll('.section-title, .project-card, .about-content p');
-    
+
     fadeElements.forEach(el => {
         el.style.opacity = "0";
         el.style.transform = "translateY(20px)";
         el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
         observer.observe(el);
+    });
+    // Resume Modal Logic
+    const modal = document.getElementById('resumeModal');
+    const resumeTriggers = document.querySelectorAll('.resume-trigger');
+    const closeBtn = document.getElementById('closeModal');
+
+    function openModal(e) {
+        e.preventDefault();
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    }
+
+    resumeTriggers.forEach(trigger => {
+        trigger.addEventListener('click', openModal);
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Close modal when clicking outside content
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
     });
 });
